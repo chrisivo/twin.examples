@@ -11,7 +11,23 @@ export default {
   content: ['*'],
   theme: {
     fontFamily: {
-      headingthree: prepArrayForTWConfig([
+      escapedarrayworking: prepArrayForTWConfig([
+        'var(--font-heading)',
+        ...defaultTheme.fontFamily.sans,
+      ]),
+
+      unescapedarrayfail: [
+        'var(--font-heading)',
+        ...defaultTheme.fontFamily.sans,
+      ],
+
+      singleunescaped: ['cursive'],
+      singlevarunescaped: ['var(--font-heading)'],
+      singlequotesunescaped: ['"Apple Color Emoji"'],
+      singlevarescaped: [prepForTWConfig('var(--font-heading)')],
+      singlequotesescaped: [prepForTWConfig('"Apple Color Emoji"')],
+      varinarray: ['var(--font-heading)', ...defaultTheme.fontFamily.sans],
+      varinescapedarray: prepArrayForTWConfig([
         'var(--font-heading)',
         ...defaultTheme.fontFamily.sans,
       ]),
